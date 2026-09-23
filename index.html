@@ -344,7 +344,185 @@
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}.reveal{transition:none}.floating-card{animation:none}
     }
+  
+/* ===== OIKKO VISUAL UPGRADE v2 ===== */
+:root{
+  --accent:#2f8f68;
+  --accent-2:#56b98d;
+  --ink:#10251c;
+  --glass:rgba(255,255,255,.68);
+}
+body{
+  background:
+    radial-gradient(circle at 10% 8%,rgba(86,185,141,.09),transparent 24rem),
+    radial-gradient(circle at 90% 36%,rgba(244,196,90,.07),transparent 22rem),
+    var(--cream);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.28;
+  background-image:radial-gradient(rgba(47,111,87,.14) 1px,transparent 1px);
+  background-size:26px 26px;
+  mask-image:linear-gradient(to bottom,black,transparent 72%);
+}
+.header{padding-top:12px}
+.header.scrolled{padding-top:9px}
+.header.scrolled .nav{
+  background:rgba(255,255,255,.72);
+  border-color:rgba(47,111,87,.16);
+  box-shadow:0 14px 40px rgba(18,59,46,.09);
+}
+body.dark .header.scrolled .nav{background:rgba(16,31,24,.76)}
+.nav{backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.brand{transition:transform .25s ease}
+.brand:hover{transform:translateY(-1px)}
+.brand-mark.actual-logo,.mini-mark.actual-logo{
+  box-shadow:0 10px 28px rgba(47,111,87,.16);
+}
+.nav-links a{position:relative}
+.nav-links a:after{
+  content:"";position:absolute;left:12px;right:12px;bottom:5px;height:2px;
+  background:var(--accent);border-radius:9px;transform:scaleX(0);transform-origin:center;transition:.22s;
+}
+.nav-links a:hover:after,.nav-links a.active:after{transform:scaleX(1)}
+
+.hero{
+  min-height:900px;
+  background:
+    radial-gradient(circle at 7% 30%,rgba(216,243,228,.95),transparent 27rem),
+    radial-gradient(circle at 91% 12%,rgba(244,196,90,.18),transparent 20rem),
+    radial-gradient(circle at 78% 88%,rgba(86,185,141,.10),transparent 24rem),
+    linear-gradient(180deg,#fbfdfb 0%,#eef6f1 100%);
+}
+.hero:before{
+  content:"";position:absolute;width:520px;height:520px;right:-230px;bottom:-280px;
+  border:1px solid rgba(47,111,87,.10);border-radius:50%;
+  box-shadow:0 0 0 60px rgba(47,111,87,.025),0 0 0 120px rgba(47,111,87,.018);
+}
+.hero-copy h1{
+  text-wrap:balance;
+  text-shadow:0 10px 30px rgba(18,59,46,.05);
+}
+.hero-copy h1 span{
+  background:linear-gradient(135deg,#2f6f57,#48a77b);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-copy>p{max-width:610px}
+.hero-actions .primary-btn{
+  background:linear-gradient(135deg,#3b8d6b,#27654f);
+  box-shadow:0 16px 34px rgba(47,111,87,.24);
+}
+.hero-actions .primary-btn:hover{box-shadow:0 20px 42px rgba(47,111,87,.30)}
+.eyebrow{box-shadow:0 8px 24px rgba(47,111,87,.06)}
+.hero-proof .proof{
+  padding:8px 11px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(255,255,255,.48);backdrop-filter:blur(8px);
+}
+body.dark .hero-proof .proof{background:rgba(255,255,255,.035)}
+
+.hero-visual:before,.hero-visual:after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+}
+.hero-visual:before{width:15px;height:15px;background:#f4c45a;top:80px;left:8%;box-shadow:0 0 0 9px rgba(244,196,90,.14)}
+.hero-visual:after{width:9px;height:9px;background:#56b98d;right:7%;bottom:130px;box-shadow:0 0 0 8px rgba(86,185,141,.14)}
+.glow{background:rgba(47,143,104,.17);filter:blur(55px);animation:heroGlow 7s ease-in-out infinite}
+@keyframes heroGlow{50%{transform:translate(-50%,-53%) scale(1.08);opacity:.72}}
+.phone{
+  transform:rotate(3deg) translateY(0);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease;
+  box-shadow:0 42px 100px rgba(5,22,15,.28),0 0 0 1px rgba(255,255,255,.16);
+}
+.phone:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 52px 115px rgba(5,22,15,.34)}
+.floating-card{
+  box-shadow:0 20px 55px rgba(18,59,46,.13);
+  border-color:rgba(47,111,87,.16);
+}
+.trust{padding-top:28px}
+.trust-inner{gap:12px}
+.trust-badge{
+  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
+  background:var(--white);box-shadow:0 8px 25px rgba(18,59,46,.045);
+}
+
+.section{position:relative}
+.section-head h2,.split-copy h2,.tube-copy h2,.cta h2{ text-wrap:balance }
+.feature-card,.community-card{
+  position:relative;overflow:hidden;
+}
+.feature-card:before,.community-card:not(.large):before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(86,185,141,.08),transparent 40%);
+  opacity:0;transition:.3s;
+}
+.feature-card:hover:before,.community-card:hover:before{opacity:1}
+.feature-card:hover{transform:translateY(-8px) scale(1.01)}
+.feature-icon{box-shadow:inset 0 0 0 1px rgba(47,111,87,.05)}
+.visual-card{
+  box-shadow:0 24px 70px rgba(18,59,46,.08);
+}
+.tube-section{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(86,185,141,.12),transparent 25rem),
+    radial-gradient(circle at 12% 85%,rgba(244,196,90,.06),transparent 20rem),
+    #071b15;
+}
+.tube-screen{
+  border-color:rgba(216,243,228,.16);
+  box-shadow:0 35px 90px rgba(0,0,0,.32);
+}
+.video-large{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);
+}
+.community-card.large{
+  box-shadow:0 30px 70px rgba(18,59,46,.18);
+}
+.cta-card{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(86,185,141,.24),transparent 18rem),
+    linear-gradient(135deg,#102f24,#2f8060);
+}
+footer{background:linear-gradient(180deg,var(--white),var(--cream-2))}
+.social{transition:.2s}
+.social:hover{transform:translateY(-3px);background:var(--mint-2);color:var(--green)}
+
+.reveal{transform:translateY(30px) scale(.985)}
+.reveal.visible{transform:none}
+
+@media(max-width:950px){
+  .hero{padding-bottom:55px}
+  .hero-visual{margin-top:5px}
+}
+@media(max-width:620px){
+  .hero{background:
+    radial-gradient(circle at 10% 22%,rgba(216,243,228,.9),transparent 18rem),
+    linear-gradient(180deg,#fbfdfb,#eef6f1)}
+  .hero-copy h1{letter-spacing:-.045em}
+  .hero-proof .proof{font-size:11px}
+  .trust-inner{gap:7px}
+  .trust-badge{font-size:10px;padding:7px 10px}
+}
+
   </style>
+
+<style id="oikko-final-stability-fix">
+  /* Final stability patch: never leave the whole page invisible when an external
+     icon/font script is unavailable or the animation observer fails. */
+  .reveal{opacity:1 !important;transform:none !important;}
+  html{overflow-x:hidden;}
+  body{min-width:0;overflow-x:hidden;}
+  .header,.nav{max-width:100%;}
+  @media (max-width:950px){
+    .nav{width:calc(100% - 20px);padding-left:10px;}
+    .nav-links{display:none !important;}
+    .menu-btn{display:grid !important;}
+    .nav.open .nav-links{display:grid !important;}
+    .brand-text{font-size:16px;}
+    .hero{padding-top:105px;}
+  }
+  /* Keep the decorative pointer glow behind the page, not behind the browser canvas. */
+  .pointer-glow{z-index:0 !important;}
+  .header,.main,.footer{position:relative;z-index:2;}
+  .header{position:fixed;z-index:100;}
+</style>
 </head>
 
 <body>
@@ -672,7 +850,7 @@
       ? '<i data-lucide="sun"></i>'
       : '<i data-lucide="moon"></i>';
     try{ localStorage.setItem('oikko_site_theme', mode); }catch(e){}
-    lucide.createIcons();
+    window.lucide?.createIcons?.();
   }
 
   let savedTheme = 'light';
@@ -691,7 +869,7 @@
     menuBtn.innerHTML = nav.classList.contains('open')
       ? '<i data-lucide="x"></i>'
       : '<i data-lucide="menu"></i>';
-    lucide.createIcons();
+    window.lucide?.createIcons?.();
   });
 
   document.querySelectorAll('.nav-links a').forEach(a=>{
@@ -714,7 +892,64 @@
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-  lucide.createIcons();
+  window.lucide?.createIcons?.();
+</script>
+
+<script>
+/* Oikko visual micro-interactions */
+(() => {
+  const nav = document.getElementById('nav');
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const sections = [...document.querySelectorAll('main section[id]')];
+
+  const updateActive = () => {
+    const y = window.scrollY + 150;
+    let current = sections[0]?.id || 'home';
+    sections.forEach(sec => { if(sec.offsetTop <= y) current = sec.id; });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+current));
+  };
+  updateActive();
+  window.addEventListener('scroll', updateActive, {passive:true});
+
+  // Gentle pointer glow on desktop.
+  const glow = document.createElement('div');
+  glow.className = 'pointer-glow';
+  glow.setAttribute('aria-hidden','true');
+  Object.assign(glow.style,{
+    position:'fixed',width:'260px',height:'260px',borderRadius:'50%',
+    pointerEvents:'none',zIndex:'-1',opacity:'0',
+    background:'radial-gradient(circle, rgba(86,185,141,.10), transparent 68%)',
+    transform:'translate(-50%,-50%)',transition:'opacity .25s ease'
+  });
+  document.body.appendChild(glow);
+  if (matchMedia('(pointer:fine)').matches) {
+    window.addEventListener('pointermove',e=>{
+      glow.style.left=e.clientX+'px'; glow.style.top=e.clientY+'px'; glow.style.opacity='1';
+    },{passive:true});
+    document.addEventListener('mouseleave',()=>glow.style.opacity='0');
+  }
+
+  // Prevent menu staying open after resizing back to desktop.
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth > 950) nav?.classList.remove('open');
+  },{passive:true});
+})();
+</script>
+
+
+<script>
+(() => {
+  // External icon library is optional; the website itself must still render.
+  if (!window.lucide) {
+    document.querySelectorAll('[data-lucide]').forEach(el => {
+      el.removeAttribute('data-lucide');
+      el.textContent = '';
+    });
+  }
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+})();
 </script>
 </body>
 </html>
